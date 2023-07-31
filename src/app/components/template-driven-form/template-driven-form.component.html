@@ -1,0 +1,87 @@
+<h2 class="form-header">Template Driven Form Example</h2>
+
+<mat-card class="form-container">
+    <mat-card-content>
+        <form class="form" #templateForm="ngForm" novalidate>
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Enter your name" name="name" ngModel>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Enter your email" name="email" ngModel>
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+
+            <section class="phone-container">
+                <mat-form-field appearance="outline">
+                    <mat-label>Country Code</mat-label>
+                    <mat-select name="countryCode" ngModel>
+                        <mat-option *ngFor="let countryCode of countryCodes" [value]="countryCode.code">
+                            {{countryCode.country}} (+{{countryCode.code}})
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Enter your phone" name="phone" ngModel>
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+            </section>
+
+            <!-- ngModelGroup creates a nested group of ngModel -->
+            <section class="group-container" ngModelGroup="address">
+                <mat-form-field appearance="outline">
+                    <mat-label>Street Address</mat-label>
+                    <input matInput placeholder="Enter your street address" name="streetAddress" ngModel>
+                </mat-form-field>
+
+                <section class="city-state-zipcode">
+                    <mat-form-field appearance="outline">
+                        <mat-label>City</mat-label>
+                        <input matInput placeholder="Enter your city" name="city" ngModel>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>State</mat-label>
+                        <mat-select name="state" ngModel>
+                            <mat-option *ngFor="let state of states" [value]="state">
+                                {{state}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Zip Code</mat-label>
+                        <input matInput placeholder="Enter your zip code" name="name" ngModel>
+                    </mat-form-field>
+
+                </section>
+            </section>
+
+            <section class="single-checkbox-container">
+                <label>Pick your favorite season:</label>
+                <mat-radio-group class="example-radio-group" name="favoriteSeason" ngModel>
+                    <mat-radio-button color="primary" *ngFor="let season of seasons" [value]="season">
+                        {{season}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </section>
+
+            <section class="multiple-checkbox-container">
+                <label>Select your favorite toppings: </label>
+                <mat-checkbox color="primary">Pepperoni</mat-checkbox>
+                <mat-checkbox color="primary">Extra Cheese</mat-checkbox>
+                <mat-checkbox color="primary">Mushroom</mat-checkbox>
+            </section>
+
+            <section class="form-btn-container">
+                <button class="form-btn" mat-raised-button color="primary"
+                    (click)="submit(templateForm)">Submit</button>
+                <button class="form-btn" mat-raised-button>Reset</button>
+            </section>
+        </form>
+    </mat-card-content>
+</mat-card>

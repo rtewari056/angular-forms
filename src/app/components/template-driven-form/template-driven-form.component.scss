@@ -1,0 +1,61 @@
+.form-header {
+    color: rgb(93, 92, 92);
+    text-align: center;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    .phone-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        mat-form-field:nth-child(1) {
+            width: 30%;
+            // background-color: red;
+        }
+
+        mat-form-field:nth-child(2) {
+            width: 70%;
+            // background-color: red;
+        }
+    }
+
+    .multiple-checkbox-container {
+        padding-bottom: 10px;
+        mat-label {
+            display: block;
+        }
+    }
+
+    .group-container {
+        display: flex;
+        flex-direction: column;
+
+        .city-state-zipcode{
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+    }
+
+
+    .form-btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    
+        .form-btn {
+            width: 100%;
+            padding: 20px;
+        }
+    }
+}
