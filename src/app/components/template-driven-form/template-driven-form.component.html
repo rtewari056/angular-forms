@@ -70,11 +70,9 @@
                 </mat-radio-group>
             </section>
 
-            <section class="multiple-checkbox-container">
+            <section class="multiple-checkbox-container" ngModelGroup="toppings">
                 <label>Select your favorite toppings: </label>
-                <mat-checkbox color="primary">Pepperoni</mat-checkbox>
-                <mat-checkbox color="primary">Extra Cheese</mat-checkbox>
-                <mat-checkbox color="primary">Mushroom</mat-checkbox>
+                <mat-checkbox color="primary" *ngFor="let topping of toppings" [name]="topping" ngModel>{{topping}}</mat-checkbox>
             </section>
 
             <section class="form-btn-container">
